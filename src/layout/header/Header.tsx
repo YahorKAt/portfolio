@@ -11,7 +11,7 @@ export const Header = () => {
     return (
         <StyledHeader>
             <FlexWrapper align={"center"} justify={"space-between"}>
-                <Logo color={"color_logo"} />
+                <Logo color={"color_logo"}/>
                 <Menu links={links}/>
                 <Networks/>
             </FlexWrapper>
@@ -19,4 +19,9 @@ export const Header = () => {
 
     );
 };
-const StyledHeader = styled.header``
+const StyledHeader = styled.header`
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #F5F5F5; 
+`

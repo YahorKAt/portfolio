@@ -20,18 +20,21 @@ export const Item = ({position, company, location, startDate, endDate, employmen
 
             <MetaInfo>
                 <CompanyInfo>
-                    <InfoItem>
-                        <Icon iconId={"building"} width={"12"} height={"12"}/>
+                    <InfoItem aria-label={"building icon"}>
+                        <Icon iconId={"building"} width={"12"} height={"12"} aria-hidden="true"/>
                         {company}
                     </InfoItem>
-                    <InfoItem>
-                        <Icon iconId={"location"} width={"12"} height={"12"}/>
+                    <InfoItem aria-label={"map point icon"}>
+                        <Icon iconId={"location"} width={"12"} height={"12"} aria-hidden="true"/>
                         {location}
                     </InfoItem>
                 </CompanyInfo>
                 <DateRange>
-                    <Icon iconId={"calendar"} width={"12"} height={"12"}/>
-                    {startDate} - {endDate}
+                    <InfoItem aria-label={"calendar icon"}>
+                        <Icon iconId={"calendar"} width={"12"} height={"12"} aria-hidden="true"/>
+                        {startDate} - {endDate}
+                    </InfoItem>
+
                 </DateRange>
             </MetaInfo>
         </StyledExperienceItem>
@@ -51,7 +54,7 @@ const Header = styled.div`
     color: #A7A7A7;
 `
 
-const Position = styled.h4`
+const Position = styled.h3`
     font-size: 1.25rem;
     font-weight: normal;
     color: #666666;

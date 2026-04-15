@@ -48,6 +48,7 @@ export const AboutMe = () => {
                     static files: HTML/CSS/JS.
                 </p>
             </StyledAboutMe>
+
             <StyledWorkList>
                 <StyledTitle>Work Experience</StyledTitle>
                 {workExperienceArray.map((item, index) => (
@@ -59,6 +60,7 @@ export const AboutMe = () => {
                           employmentType={item.employmentType}/>
                 ))}
             </StyledWorkList>
+
             <StyledEducationList>
                 <StyledTitle>Education</StyledTitle>
                 {educationExperienceArray.map((item, index) => (

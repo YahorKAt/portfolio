@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import {FlexWrapper} from "../../../components/FlexWrapper.tsx";
-import {Logo} from "../../../components/logo/Logo.tsx";
-import {Networks} from "../../../components/networks/Networks.tsx";
-import {Menu} from "../../../components/menu/Menu.tsx";
+import {FlexWrapper} from "../../components/FlexWrapper.tsx";
+import {Logo} from "../../components/logo/Logo.tsx";
+import {Networks} from "../../components/networks/Networks.tsx";
+import {Menu} from "../../components/menu/Menu.tsx";
 
-const links = ["Home", "about", "Technologies", "Projects", "Contact"]
+const links = ["Home", "About", "Technologies", "Projects", "Contact"]
 
 export const Footer = () => {
     return (
@@ -71,4 +71,7 @@ const GradientText = styled.span`
 const NavRow = styled.div`
     display: flex;
     justify-content: space-between;
+    a{
+        font-size: 18px;
+    }
 `

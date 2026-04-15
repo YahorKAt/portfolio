@@ -5,15 +5,16 @@ import {FlexWrapper} from "../../../components/FlexWrapper.tsx";
 export const Main = () => {
     return (
         <StyledMain>
-            <FlexWrapper align={"center"} justify={"space-between"}>
+            <FlexWrapper align={"center"} justify={"space-between"} wrap={'wrap'}>
                 <StyledTextBox>
                     <span>Hi </span><span aria-hidden="true">👋,</span><br/>
                     <span>My name is </span><br/>
                     <h2>Egor Kotkovets</h2>
                     <h1>I'm a web developer</h1>
                 </StyledTextBox>
-
-                <Photo src={photo} alt="photo"/>
+                <Photo>
+                    <img src={photo} alt="photo"/>
+                </Photo>
             </FlexWrapper>
         </StyledMain>
     );
@@ -28,9 +29,9 @@ const StyledTextBox = styled.div`
     font-weight: bold;
     font-size: 3.625rem;
     line-height: 70px;
-    
-    
-    h2{
+
+
+    h2 {
         font-size: inherit;
         background: linear-gradient(90deg, #13B0F5 3%, #E70FAA 100%);
 
@@ -42,14 +43,25 @@ const StyledTextBox = styled.div`
         -webkit-text-fill-color: transparent;
         color: transparent;
     }
-    
-    h1{
+
+    h1 {
         font-size: inherit;
     }
 `
 
-const Photo = styled.img`
+const Photo = styled.div`
     width: 350px;
     height: 350px;
-    object-fit: cover;
+    border-radius: 50%;
+    background: linear-gradient(0deg, #13B0F5 3%, #E70FAA 100%);
+    padding: 6px;
+    box-sizing: border-box;
+    
+    img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
 `

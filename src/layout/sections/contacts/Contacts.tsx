@@ -14,7 +14,7 @@ export const Contacts = () => {
 };
 const StyledContacts = styled.section``
 
-const Text = styled.h5`
+const Text = styled.h4`
     color: #1E0E62;
     font-size: 3.625rem;
     font-weight: bold;
