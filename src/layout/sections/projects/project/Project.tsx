@@ -1,8 +1,10 @@
 import {Icon} from "../../../../components/icon/Icon.tsx";
 import styled from "styled-components";
+import {theme} from "../../../../styles/Theme.tsx";
 
 type ProjectProps = {
     imageSrc: string,
+    imageSrc2x: string,
     title: string,
     description: string,
     technologies: Array<string>,
@@ -12,13 +14,13 @@ type ProjectProps = {
 export const Project = (props: ProjectProps) => {
     return (
         <StyledProject>
-            <Image src={props.imageSrc} alt="project1"/>
+            <Image src={props.imageSrc} srcSet={`${props.imageSrc2x} 2x`} alt="project1"/>
             <StyledInfoBox>
                 <Title>{props.title}</Title>
                 <Description>{props.description}</Description>
                 <StackText>
-                    <span className={"stack"}>Tech stack:</span>
-                    <span>{props.technologies}</span>
+                    <span className="stack">Tech stack : </span>
+                    <span>{props.technologies.join(', ')}</span>
                 </StackText>
 
                 <Links>
@@ -37,13 +39,18 @@ export const Project = (props: ProjectProps) => {
     );
 };
 
-const StyledProject = styled.div`
-    max-width: 375px;
+const StyledProject = styled.li`
     display: flex;
     flex-direction: column;
+    box-shadow: 0 0 100px 0 rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     overflow: hidden;
-    background-color: #FFFFFF;
+    background: ${theme.colors.primaryBg};
+    
+    &:hover{
+        transform: scale(1.25);
+        transition: .3s;
+    }
 `
 
 const StyledInfoBox = styled.div`
@@ -52,37 +59,53 @@ const StyledInfoBox = styled.div`
 
 const Image = styled.img`
     width: 100%;
-    height: 260px;
+    max-height: 260px;
     object-fit: cover;
 `
 
 const Title = styled.h4`
     font-size: 1.75rem;
     font-weight: 500;
-    color: #000000;
+    color: ${theme.colors.titleFont};
 `
 
 const Description = styled.p`
     font-size: 1.125rem;
     font-weight: 300;
+    margin: 15px 0;
 `
 
 const StackText = styled.div`
-    font-size: 0.9375rem;
+    display: inline-block;
+    overflow-wrap: anywhere;
+    font-size: 0.875rem;
     font-weight: 300;
-    color: #42446E;
+    color: ${theme.colors.titleFont};
+    margin-bottom: 20px;
     
     .stack{
+        font-size: 1rem;
+        line-height: 1.625;
         font-weight: 400;
     }
 `
 
 const Links = styled.div`
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    :hover {
+        color: rgb(66 68 110 / 0.24);
+    }
 `
 
 const Link = styled.a`
     display: flex;
+    gap: 10px;
+    line-height: 1.625;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: ${theme.colors.titleFont};
     align-items: center;
-    color: #000000;
 `

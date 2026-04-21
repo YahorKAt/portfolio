@@ -1,10 +1,10 @@
 import {Icon} from "../../icon/Icon.tsx";
 import styled from "styled-components";
 
-type NetworkProps ={
+type NetworkProps = {
     href: string,
     iconId: string,
-    className?: string,
+    className?: string
 }
 
 export function Network(props: NetworkProps) {
@@ -16,5 +16,5 @@ export function Network(props: NetworkProps) {
 }
 
 const StyledLink = styled.a`
-    
+    display: flex;
 `

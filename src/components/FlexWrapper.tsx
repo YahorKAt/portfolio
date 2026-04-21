@@ -1,18 +1,20 @@
 import styled from "styled-components";
+import type {CSSProperties} from "react";
 
 type FlexWrapperProps = {
-    direction?: string;
-    justify?: string;
-    align?: string;
-    wrap?: string;
-    gap?: string;
+    $direction?: CSSProperties["flexDirection"];
+    $justify?: CSSProperties["justifyContent"];
+    $align?: CSSProperties["alignItems"];
+    $wrap?: CSSProperties["flexWrap"];
+    $gap?: CSSProperties["gap"];
 }
 
 export const FlexWrapper = styled.div<FlexWrapperProps>`
     display: flex;
-    flex-direction: ${props => props.direction || "row"};
-    justify-content: ${props => props.justify || "flex-start"};
-    align-items: ${props => props.align || "stretch"};
-    flex-wrap: ${props => props.wrap || "nowrap"};
-    gap: ${props => props.gap};
+    flex-direction: ${({ $direction }) => $direction || null};
+    justify-content: ${({ $justify }) => $justify || null};
+    align-items: ${({ $align }) => $align || null};
+    flex-wrap: ${({ $wrap }) => $wrap || null};
+    gap: ${({ $gap }) => $gap || null};
+    height: 100%;
 `

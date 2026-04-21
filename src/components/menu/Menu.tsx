@@ -1,33 +1,55 @@
 import styled from "styled-components";
 
-export const Menu = (props: { links: Array<string>; }) => {
+type MenuProps = {
+    links: Array<{ title: string; id: string }>,
+    $gap?: string
+}
+
+export const Menu = (props: MenuProps) => {
     return (
-        <StyledMenu>
-            <ul role="menu">
+        <StyledMenu gap={props.$gap}>
+            <ul>
                 {props.links.map((link, index) =>
-                    <li role="menuitem" key={index}>
-                        <a href="#">{link}</a>
-                    </li>)}
+                    <ListItem key={index}>
+                        <Link href={"#" + link.id}>{link.title}</Link>
+                    </ListItem>)}
             </ul>
         </StyledMenu>
     );
 };
 
-const StyledMenu = styled.nav`
+const StyledMenu = styled.nav<{ gap?: string }>`
     ul {
         display: flex;
-        column-gap: 50px;
         flex-wrap: wrap;
-    }
+        gap: ${({gap}) => gap || '4rem'};
 
-    li {
-        list-style: none;
-    }
+        @media (max-width: 1024px) {
+            gap: ${({ gap }) => gap || '1.5rem'}; /* планшет */
+        }
 
-    a {
-        text-decoration: none;
-        font-size: 20px;
-        color: inherit;
-        outline: none;
+        @media (max-width: 768px) {
+            gap: ${({ gap }) => gap || '1rem'}; /* маленькие экраны */
+        }
+
+        @media (max-width: 480px) {
+            gap: ${({ gap }) => gap || '0.5rem'}; /* мобильные */
+        }
+    }
+`
+
+const Link = styled.a`
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;    
+`
+
+const ListItem = styled.li`
+    &:hover {
+        transform:  scale(120%);
+    }
+    
+    &:active {
+        transform: translateY(2px)
     }
 `

@@ -3,25 +3,36 @@ import {Menu} from "../../components/menu/Menu.tsx";
 import {Networks} from "../../components/networks/Networks.tsx";
 import {FlexWrapper} from "../../components/FlexWrapper.tsx";
 import styled from "styled-components";
+import {theme} from "../../styles/Theme.tsx";
+import {Container} from "../../components/Container.tsx";
 
-const links = ["Home", "About", "Tech Stack", "Projects", "Contact"]
+const links = [
+    { title: "Home", id: "home" },
+    { title: "About", id: "about" },
+    { title: "Tech Stack", id: "skills" },
+    { title: "Projects", id: "projects" },
+    { title: "Contact", id: "contact" }
+]
 
 export const Header = () => {
 
     return (
         <StyledHeader>
-            <FlexWrapper align={"center"} justify={"space-between"}>
-                <Logo color={"color_logo"}/>
-                <Menu links={links}/>
-                <Networks/>
-            </FlexWrapper>
+            <Container>
+                <FlexWrapper $align={"center"} $justify={"space-between"} $wrap={"wrap"}>
+                    <Logo color={"color_logo"}/>
+                    <Menu links={links}/>
+                    <Networks/>
+                </FlexWrapper>
+            </Container>
         </StyledHeader>
 
     );
 };
+
 const StyledHeader = styled.header`
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #F5F5F5; 
+    background-color: ${theme.colors.primaryBg};
 `

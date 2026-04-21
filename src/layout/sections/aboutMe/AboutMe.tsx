@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import {Item} from "./Item.tsx";
+import {theme} from "../../../styles/Theme.tsx";
+import {List} from "../../../components/List.tsx";
+import {Container} from "../../../components/Container.tsx";
 
 const workExperienceArray = [
     {
-        position: "Junior Web Developer",
+        jobPosition: "Junior Web Developer",
         company: "Dr. Rajkumar’s Learning App",
         location: "Bengaluru",
         startDate: "Sep 2021",
@@ -11,7 +13,7 @@ const workExperienceArray = [
         employmentType: "Full Time"
     },
     {
-        position: "Web Development Intern",
+        jobPosition: "Web Development Intern",
         company: "IonPixelz Web Solutions",
         location: "Bengaluru",
         startDate: "Sep 2021",
@@ -19,7 +21,7 @@ const workExperienceArray = [
         employmentType: "Internship"
     },
     {
-        position: "SEO / SEM Specialist",
+        jobPosition: "SEO / SEM Specialist",
         company: "HAAPS",
         location: "Bengaluru",
         startDate: "Sep 2021",
@@ -29,9 +31,17 @@ const workExperienceArray = [
 ]
 const educationExperienceArray = [
     {
-        position: "Bachelor in Electronics & Communication",
+        jobPosition: "Bachelor in Electronics & Communication",
         company: "Bangalore Instutute of Technology",
-        location: "Bengaluru",
+
+        startDate: "Aug 2015",
+        endDate: "Dec 2020",
+        employmentType: "Full Time"
+    },
+    {
+        jobPosition: "Bachelor in Electronics & Communication",
+        company: "Bangalore Instutute of Technology",
+
         startDate: "Aug 2015",
         endDate: "Dec 2020",
         employmentType: "Full Time"
@@ -40,58 +50,50 @@ const educationExperienceArray = [
 
 export const AboutMe = () => {
     return (
-        <StyledSection>
-            <StyledAboutMe>
-                <StyledTitle>About Me</StyledTitle>
-                <p>The Generator App is an online tool that helps you to export ready-made templates ready to work as your
-                    future website. It helps you to combine slides, panels and other components and export it as a set of
-                    static files: HTML/CSS/JS.
-                </p>
-            </StyledAboutMe>
+        <StyledSection id='about'>
+            <Container>
+                <InformationSection>
+                    <StyledTitle>About Me</StyledTitle>
+                    <StyledText>The Generator App is an online tool that helps you to export ready-made templates ready
+                        to work
+                        as
+                        your future website. It helps you to combine slides, panels and other components and export it
+                        as a
+                        set of static files: HTML/CSS/JS.
+                    </StyledText>
 
-            <StyledWorkList>
-                <StyledTitle>Work Experience</StyledTitle>
-                {workExperienceArray.map((item, index) => (
-                    <Item key={index} position={item.position}
-                          company={item.company}
-                          location={item.location}
-                          startDate={item.startDate}
-                          endDate={item.endDate}
-                          employmentType={item.employmentType}/>
-                ))}
-            </StyledWorkList>
+                    <StyledTitle>Work Experience</StyledTitle>
+                    <List data={workExperienceArray}/>
 
-            <StyledEducationList>
-                <StyledTitle>Education</StyledTitle>
-                {educationExperienceArray.map((item, index) => (
-                    <Item key={index} position={item.position}
-                          company={item.company}
-                          location={item.location}
-                          startDate={item.startDate}
-                          endDate={item.endDate}
-                          employmentType={item.employmentType}/>
-                ))}
-            </StyledEducationList>
+                    <StyledTitle>Education</StyledTitle>
+                    <List data={educationExperienceArray}/>
+                </InformationSection>
+                <FigureSection>
 
+                </FigureSection>
+            </Container>
         </StyledSection>
     );
 };
-const StyledSection = styled.section`
-    max-width: 50%;
-    p{
-        font-size: 1.125rem;
-        font-weight: normal;
-    }
+
+const StyledSection = styled.section``
+
+const InformationSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    width: 60%;
 `
 
 const StyledTitle = styled.h2`
+    font-weight: 700;
     font-size: 2.625rem;
-    color: #42446E;
-    font-weight: bold;
+    letter-spacing: -0.01em;
+    color: ${theme.colors.titleFont};
 `
 
-const StyledAboutMe = styled.div``
+const StyledText = styled.p`
+    font-size: 1.125rem;
+`
 
-const StyledWorkList = styled.div``
-
-const StyledEducationList = styled.div``
+const FigureSection = styled.div``

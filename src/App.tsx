@@ -11,7 +11,7 @@ import styled from "styled-components";
 function App() {
 
     return (
-        <StyledContainer>
+        <StyledApp id='home'>
             <Header/>
             <Main/>
             <AboutMe/>
@@ -19,15 +19,15 @@ function App() {
             <Projects/>
             <Contacts/>
             <Footer/>
-        </StyledContainer>
+        </StyledApp>
     )
 }
 
-const StyledContainer = styled.div`
+const StyledApp = styled.div`
     display: flex;
     flex-direction: column;
     gap: 200px;
-    margin: 40px 200px 60px 200px;
+    margin: 40px 0 60px 0;
 `
 
 export default App

@@ -12,6 +12,7 @@ export const Skill = (props: SkillProps) => {
     );
 };
 
-const StyledSkill = styled.div`
+const StyledSkill = styled.li`
     display: flex;
+    justify-content: center;
 `
