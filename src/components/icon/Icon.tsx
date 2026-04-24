@@ -1,19 +1,16 @@
-import iconsSprite from '../../assets/images/sprite.svg';
-import styled from "styled-components";
+import sprite from '../../assets/images/sprite.svg';
 
-type IconProps = {
+type IconPropsType = {
     width?: string,
     height?: string,
     iconId: string,
 
 }
 
-export const Icon = ({width, height, iconId}: IconProps) => {
+export const Icon = ({width, height, iconId}: IconPropsType) => {
     return (
-        <StyledSvg width={width || "30"} height={height || "30"}>
-            <use xlinkHref={`${iconsSprite}#${iconId}`}/>
-        </StyledSvg>
+        <svg width={width || "30"} height={height || "30"}>
+            <use xlinkHref={`${sprite}#${iconId}`}/>
+        </svg>
     );
 };
-
-const StyledSvg = styled.svg``

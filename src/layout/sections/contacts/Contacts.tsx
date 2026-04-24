@@ -1,24 +1,23 @@
 import styled from "styled-components";
 import {theme} from "../../../styles/Theme.tsx";
 import {Container} from "../../../components/Container.tsx";
+import {StyledSection} from "../../../components/StyledSection.tsx";
 
 export const Contacts = () => {
     return (
-        <StyledContacts id='contact'>
+        <StyledSection id='contact'>
             <Container>
-                <Text>For any questions please mail me: <GradientText>hi@pavanmg.in</GradientText></Text>
+                <StyledText>For any questions please mail me: <GradientText>hi@pavanmg.in</GradientText></StyledText>
             </Container>
-        </StyledContacts>
+        </StyledSection>
     );
 };
 
-const StyledContacts = styled.section``
-
-const Text = styled.h4`
+const StyledText = styled.h4`
     font-family: "DM Sans", sans-serif;
     font-weight: 700;
     font-size: 3.625rem;
-    line-height: 1.2069;
+    line-height: 1.2;
     letter-spacing: -0.02em;
     text-align: center;
     color: ${theme.colors.titleFont};

@@ -1,9 +1,9 @@
 import {Item} from "../layout/sections/aboutMe/Item.tsx";
 import styled from "styled-components";
 
-type ItemType = {
+type ItemPropsType = {
     jobPosition: string;
-    company: string;
+    nameCompany: string;
     location?: string;
     startDate: string;
     endDate?: string;
@@ -11,15 +11,16 @@ type ItemType = {
 }
 
 type ListPropsType = {
-    data: ItemType[]
+    data: ItemPropsType[]
 }
 
 export const List = (props: ListPropsType) => {
     return (
         <StyledList>
             {props.data.map((item, index) => (
-                <Item key={index} jobPosition={item.jobPosition}
-                      company={item.company}
+                <Item key={index}
+                      jobPosition={item.jobPosition}
+                      nameCompany={item.nameCompany}
                       location={item.location || ""}
                       startDate={item.startDate}
                       endDate={item.endDate}

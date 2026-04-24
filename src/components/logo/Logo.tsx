@@ -1,17 +1,27 @@
-import {Icon} from "../icon/Icon.tsx";
 import styled from "styled-components";
-type LogoProps = {
-    color: string;
+
+type LogoPropsType = {
+    text: string;
 }
-export const Logo = (props: LogoProps) => {
+
+export const Logo = (props: LogoPropsType) => {
     return (
-        <StyledLink href="/" aria-label="Логотип сайта">
-            <Icon aria-hidden="true" iconId={props.color} width="97" height="59"/>
+        <StyledLink href="/" aria-label="site logo">
+            {props.text}
         </StyledLink>
     );
 };
 
 const StyledLink = styled.a`
-    display: flex;
-    gap: 20px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    white-space: nowrap;
+    
+    background: linear-gradient(90deg, #13B0F5 3%, #E70FAA 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    user-select: none;
 `

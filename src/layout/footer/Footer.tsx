@@ -6,12 +6,12 @@ import {Menu} from "../../components/menu/Menu.tsx";
 import {theme} from "../../styles/Theme.tsx";
 import {Container} from "../../components/Container.tsx";
 
-const links = [
-    { title: "Home", id: "home" },
-    { title: "About", id: "about" },
-    { title: "Technologies", id: "skills" },
-    { title: "Projects", id: "projects" },
-    { title: "Contact", id: "contact" }
+const linksNameList = [
+    {title: "Home", id: "home"},
+    {title: "About", id: "about"},
+    {title: "Technologies", id: "skills"},
+    {title: "Projects", id: "projects"},
+    {title: "Contact", id: "contact"}
 ]
 
 export const Footer = () => {
@@ -19,21 +19,22 @@ export const Footer = () => {
         <StyledFooter>
             <Container>
                 <FlexWrapper $direction="column">
-                    <InfoRow>
-                        <Logo color={"logo"}/>
+                    <StyledTopRow>
+                        <Logo text={"My portfolio"}/>
                         <StyledContacts>
-                            <Text>+91 12345 09876</Text>
-                            <Text>info@example.com</Text>
+                            <StyledText>+91 12345 09876</StyledText>
+                            <StyledText>info@example.com</StyledText>
                             <Networks/>
                         </StyledContacts>
-                    </InfoRow>
-                    <NavRow>
-                        <Menu links={links} $gap="2rem"/>
+                    </StyledTopRow>
+                    <StyledBottomRow>
+                        <Menu links={linksNameList}/>
                         <StyledTextBox>
-                            Designed and built by <GradientText>Egor
-                            Kotkovets</GradientText> with <GradientText>Love</GradientText> & <GradientText>Coffee</GradientText>
+                            <GreyText>Designed and built by </GreyText>Egor
+                            Kotkovets<GreyText> with </GreyText>Love<GreyText> & </GreyText>
+                            Coffee
                         </StyledTextBox>
-                    </NavRow>
+                    </StyledBottomRow>
                 </FlexWrapper>
             </Container>
         </StyledFooter>
@@ -41,29 +42,25 @@ export const Footer = () => {
 };
 
 const StyledFooter = styled.footer`
+    padding-top: 100px;
+    padding-bottom: 60px;
     font-family: "DM Sans", sans-serif;
     font-size: 1.125rem;
     line-height: 1.44444;
     color: ${theme.colors.titleFont};
 `
 
-const InfoRow = styled.div`
+const StyledTopRow = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-
-    &::after {
-        content: "";
-        display: inline-block;
-        width: 100%;
-        padding-bottom: 40px;
-        margin-bottom: 45px;
-        border-bottom: #EBEAED 2px solid;
-    }
+    padding-bottom: 40px;
+    margin-bottom: 45px;
+    border-bottom: #EBEAED 2px solid;
 `
 
-const Text = styled.span`
+const StyledText = styled.span`
     display: flex;
     align-items: center;
 `
@@ -73,16 +70,12 @@ const StyledContacts = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 50px;
-
 `
 
 const StyledTextBox = styled.div`
     font-family: "Poppins", sans-serif;
     text-align: center;
-    color: ${theme.colors.font};
-`
-
-const GradientText = styled.span`
+    
     background: linear-gradient(90deg, #13B0F5 3%, #E70FAA 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -90,7 +83,13 @@ const GradientText = styled.span`
     color: transparent;
 `
 
-const NavRow = styled.div`
+const GreyText = styled.span`
+    -webkit-text-fill-color: ${theme.colors.font};
+    background: none;
+    color: ${theme.colors.titleFont};
+`
+
+const StyledBottomRow = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

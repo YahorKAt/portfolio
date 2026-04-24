@@ -1,28 +1,27 @@
 import styled from "styled-components";
 import {SectionTitle} from "../../../components/SectionTitle.tsx";
 import {SectionDescription} from "../../../components/SectionDescription.tsx";
-import {Skill} from "./skill/Skill.tsx";
 import {Container} from "../../../components/Container.tsx";
+import {StyledSection} from "../../../components/StyledSection.tsx";
+import {Skill} from "./skill/Skill.tsx";
 
-const mySkills = ["html", "css", "js", "react", "redux", "bootstrap", "tailwind", "sass", "git", "greensock", "vscode", "github"];
+const mySkillsArray = ["html", "css", "javascript", "react", "redux", "bootstrap", "tailwind", "sass", "git", "greensock", "vscode", "github"];
 
 export const Skills = () => {
     return (
-        <StyledSkills id='skills'>
+        <StyledSection id='skills'>
             <Container>
                 <SectionTitle>My Tech Stack</SectionTitle>
                 <SectionDescription>Technologies I’ve been working with recently</SectionDescription>
                 <StyledGrid>
-                    {mySkills.map((skill) => (
+                    {mySkillsArray.map((skill) => (
                         <Skill key={skill} skillName={skill}/>
                     ))}
                 </StyledGrid>
             </Container>
-        </StyledSkills>
+        </StyledSection>
     );
 };
-
-const StyledSkills = styled.section``
 
 const StyledGrid = styled.ul`
     display: grid;

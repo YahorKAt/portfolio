@@ -1,55 +1,55 @@
 import styled from "styled-components";
 
-type MenuProps = {
-    links: Array<{ title: string; id: string }>,
-    $gap?: string
+type MenuPropsType = {
+    links: Array<{ title: string; id: string }>
 }
 
-export const Menu = (props: MenuProps) => {
+export const Menu = (props: MenuPropsType) => {
     return (
-        <StyledMenu gap={props.$gap}>
-            <ul>
+        <StyledMenu>
+            <StyledList>
                 {props.links.map((link, index) =>
-                    <ListItem key={index}>
-                        <Link href={"#" + link.id}>{link.title}</Link>
-                    </ListItem>)}
-            </ul>
+                    <StyledListItem key={index}>
+                        <a href={"#" + link.id}>{link.title}</a>
+                    </StyledListItem>)}
+            </StyledList>
         </StyledMenu>
     );
 };
 
-const StyledMenu = styled.nav<{ gap?: string }>`
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: ${({gap}) => gap || '4rem'};
+const StyledMenu = styled.nav`
+    display: flex;
+    justify-content: center;
+    flex: 1;               
+    min-width: 0;
+    user-select: none;
 
-        @media (max-width: 1024px) {
-            gap: ${({ gap }) => gap || '1.5rem'}; /* планшет */
-        }
-
-        @media (max-width: 768px) {
-            gap: ${({ gap }) => gap || '1rem'}; /* маленькие экраны */
-        }
-
-        @media (max-width: 480px) {
-            gap: ${({ gap }) => gap || '0.5rem'}; /* мобильные */
-        }
+    @media (max-width: 768px) {
+        display: none;
     }
 `
 
-const Link = styled.a`
+const StyledList = styled.ul`
     font-family: "DM Sans", sans-serif;
     font-size: 1.25rem;
-    font-weight: 500;    
+    font-weight: 500;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    
+    @media (max-width: 992px) {
+        gap: 25px;
+    }
 `
 
-const ListItem = styled.li`
+const StyledListItem = styled.li`
     &:hover {
-        transform:  scale(120%);
+        transform: scale(1.2);
+        text-decoration: underline;
     }
-    
+
     &:active {
-        transform: translateY(2px)
+        transform: translateY(-2px)
     }
 `
