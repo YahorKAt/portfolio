@@ -5,6 +5,8 @@ import {Networks} from "../../components/networks/Networks.tsx";
 import {FlexWrapper} from "../../components/FlexWrapper.tsx";
 import {theme} from "../../styles/Theme.tsx";
 import {Container} from "../../components/Container.tsx";
+import {Moon} from "../../components/icon/Moon..tsx";
+
 
 const linksNameList = [
     { title: "Home", id: "home" },
@@ -19,10 +21,11 @@ export const Header = () => {
         <StyledHeader>
             <H1>I'm a web developer</H1>    {/*hidden*/}
             <Container>
-                <FlexWrapper $align={"center"} $justify={"space-between"}>
+                <FlexWrapper $justify={"space-between"}  $align={"center"} $gap={"20px"}>
                     <Logo text={"My portfolio"}/>
                     <Menu links={linksNameList}/>
                     <Networks/>
+                    <Moon/>
                 </FlexWrapper>
             </Container>
         </StyledHeader>

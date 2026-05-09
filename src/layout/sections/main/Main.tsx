@@ -1,5 +1,5 @@
 import photo from "../../../assets/images/photo/photo.webp"
-import photo2x from "../../../assets/images/photo/photo_2x.webp"
+import photo2x from "../../../assets/images/photo/photo2x.webp"
 import abstractImg from "../../../assets/images/photo/abstraction.png"
 import styled from "styled-components";
 import {FlexWrapper} from "../../../components/FlexWrapper.tsx";

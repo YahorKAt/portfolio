@@ -30,13 +30,14 @@ export function Networks() {
                     className={network.name}
                 />
             ))}
+
         </StyledSocialNetworksBox>
     )
 }
 
 const StyledSocialNetworksBox = styled.ul`
     display: flex;
-    gap: 20px;
+    gap: 10px;
 
     @media (max-width: 992px) {
         gap: 10px;
